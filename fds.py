@@ -5,6 +5,9 @@ Created on Tue Jun 20 10:30:03 2023
 @author: bhasi
 """
 
+from PyDictionary import PyDictionary
+import hashlib
+
 y = ""
 dictionary = PyDictionary()
 m = hashlib.sha256()
