@@ -5,7 +5,23 @@ Created on Tue Jun 20 10:30:03 2023
 @author: bhasi
 """
 
-!pip install PyDictionary
+import pkg_resources
+import subprocess
+import sys
+import os
+
+REQUIRED = {
+  'PyDictionary', 'hashlib'
+}
+
+installed = {pkg.key for pkg in pkg_resources.working_set}
+missing = REQUIRED - installed
+
+if missing:
+    python = sys.executable
+    subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
+    
+    
 from PyDictionary import PyDictionary
 import hashlib
 
